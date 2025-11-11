@@ -8,6 +8,13 @@ import plotly.graph_objects as go
 import numpy as np
 from datetime import datetime
 
+# Resolve project paths relative to this file, not the CWD
+HERE = os.path.dirname(__file__)
+DATA_DIR = os.path.normpath(os.path.join(HERE, "..", "data"))
+DB_PATH = os.path.join(DATA_DIR, "db", "tech_stocks.db")
+CLEAN_CSV_PATH = os.path.join(DATA_DIR, "clean", "clean_tech_stocks.csv")
+PREDICTIONS_PATH = os.path.join(DATA_DIR, "predictions.csv")
+
 # ---------------------------
 # 🎨 PAGE CONFIG & STYLING
 # ---------------------------
@@ -230,12 +237,12 @@ st.markdown("<p class='subtitle'>Data Engineering & Machine Learning | مشرو�
 # ---------------------------
 @st.cache_data
 def load_clean_data():
-    if os.path.exists("../data/db/tech_stocks.db"):
-        conn = sqlite3.connect("../data/db/tech_stocks.db")
+    if os.path.exists(DB_PATH):
+        conn = sqlite3.connect(DB_PATH)
         df = pd.read_sql("SELECT * FROM tech_stocks", conn)
         conn.close()
     else:
-        df = pd.read_csv("../data/clean/clean_tech_stocks.csv")
+        df = pd.read_csv(CLEAN_CSV_PATH)
     df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
     return df
 
@@ -243,7 +250,7 @@ def load_clean_data():
 @st.cache_data
 def load_predictions():
     # Match project layout: scripts/data/predictions.csv relative to this app
-    path = "../data/predictions.csv"
+    path = PREDICTIONS_PATH
     if os.path.exists(path):
         dfp = pd.read_csv(path)
         dfp["Date"] = pd.to_datetime(dfp["Date"], dayfirst=True, errors="coerce")
@@ -252,12 +259,12 @@ def load_predictions():
     # Auto-generate baseline predictions if file is missing, using clean data/DB
     # This avoids needing scikit-learn or external training just to preview predictions.
     # Load clean data similar to load_clean_data
-    if os.path.exists("../data/db/tech_stocks.db"):
-        conn = sqlite3.connect("../data/db/tech_stocks.db")
+    if os.path.exists(DB_PATH):
+        conn = sqlite3.connect(DB_PATH)
         dfc = pd.read_sql("SELECT * FROM tech_stocks", conn)
         conn.close()
     else:
-        dfc = pd.read_csv("../data/clean/clean_tech_stocks.csv")
+        dfc = pd.read_csv(CLEAN_CSV_PATH)
 
     # Ensure types and minimal features
     dfc["Date"] = pd.to_datetime(dfc["Date"], errors="coerce")
