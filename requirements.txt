@@ -1,0 +1,10 @@
+numpy
+pandas
+streamlit
+plotly
+matplotlib
+seaborn
+scikit-learn
+ipython
+apache-airflow
+
