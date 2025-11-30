@@ -1,5 +1,11 @@
-pandas
+pandas>=2.0.0
 yfinance==0.2.37
 multitasking==0.0.11
 sqlalchemy
 psycopg2-binary
+streamlit>=1.28.0
+numpy>=1.24.0
+plotly>=5.0.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
