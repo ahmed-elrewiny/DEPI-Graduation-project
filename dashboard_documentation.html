@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل شامل لشرح لوحة تحكم تحليل الأسهم التقنية</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        
+        @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+        }
+        
+        body {
+            font-family: 'Arial', 'DejaVu Sans', 'Tahoma', sans-serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: #333;
+            direction: rtl;
+            text-align: right;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        h1 {
+            color: #2563eb;
+            font-size: 24pt;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #2563eb;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #7c3aed;
+            font-size: 18pt;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #7c3aed;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #10b981;
+            font-size: 14pt;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+        
+        h4 {
+            color: #f59e0b;
+            font-size: 12pt;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', 'Consolas', monospace;
+            font-size: 10pt;
+            color: #d63384;
+        }
+        
+        pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            border-right: 4px solid #2563eb;
+            border-radius: 5px;
+            padding: 15px;
+            overflow-x: auto;
+            direction: ltr;
+            text-align: left;
+            margin: 15px 0;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #333;
+        }
+        
+        ul, ol {
+            margin-right: 25px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        strong, b {
+            color: #2563eb;
+            font-weight: bold;
+        }
+        
+        blockquote {
+            border-right: 4px solid #2563eb;
+            padding-right: 15px;
+            margin-right: 20px;
+            color: #666;
+            font-style: italic;
+            background: #f9f9f9;
+            padding: 10px 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: right;
+        }
+        
+        th {
+            background-color: #2563eb;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 30px 0;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+            color: #666;
+            font-size: 10pt;
+        }
+        
+        .no-print {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .no-print button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            margin: 5px;
+        }
+        
+        .no-print button:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print">
+        <h3>📄 دليل لوحة تحكم تحليل الأسهم</h3>
+        <p>لطباعة هذا الملف كـ PDF: اضغط <strong>Ctrl+P</strong> (أو Cmd+P على Mac)</p>
+        <p>ثم اختر "Save as PDF" كطابعة</p>
+        <button onclick="window.print()">🖨️ طباعة / Print</button>
+    </div>
+
+    <h1>📚 دليل شامل لشرح لوحة تحكم تحليل الأسهم التقنية</h1>
+    <h2>Tech Stocks Analysis & Prediction Dashboard - Complete Documentation</h2>
+
+    <hr>
+
+    <h2>📋 جدول المحتويات</h2>
+    <ol>
+        <li><a href="#overview">نظرة عامة على الداشبورد</a></li>
+        <li><a href="#structure">الهيكل العام للكود</a></li>
+        <li><a href="#data-loading">تحميل البيانات</a></li>
+        <li><a href="#sidebar">لوحة التحكم الجانبية</a></li>
+        <li><a href="#overview-tab">تبويب النظرة العامة (Overview)</a></li>
+        <li><a href="#historical-tab">تبويب البيانات التاريخية (Historical Data)</a></li>
+        <li><a href="#predictions-tab">تبويب التنبؤات (Predictions)</a></li>
+        <li><a href="#raw-data-tab">تبويب البيانات الخام (Raw Data)</a></li>
+        <li><a href="#model-insights-tab">تبويب رؤى النموذج (Model Insights)</a></li>
+        <li><a href="#glossary">المصطلحات الأساسية</a></li>
+    </ol>
+
+    <hr>
+
+    <h2 id="overview">🎯 نظرة عامة</h2>
+    <p>الداشبورد هو تطبيق Streamlit تفاعلي لتحليل وتوقع أسعار الأسهم التقنية. يوفر واجهة مستخدم حديثة وسهلة الاستخدام لعرض البيانات التاريخية، التنبؤات، والمؤشرات الفنية.</p>
+
+    <h3>المكونات الرئيسية:</h3>
+    <ul>
+        <li><strong>5 تبويبات رئيسية</strong> للتنقل بين مختلف أنواع التحليل</li>
+        <li><strong>لوحة تحكم جانبية</strong> لاختيار السهم ونطاق التاريخ</li>
+        <li><strong>رسوم بيانية تفاعلية</strong> باستخدام Plotly</li>
+        <li><strong>تحليلات تنبؤية</strong> باستخدام نماذج التعلم الآلي</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="structure">🏗️ الهيكل العام للكود</h2>
+
+    <h3>1. الاستيرادات والمكتبات</h3>
+    <pre><code>import streamlit as st
+import pandas as pd
+import sqlite3
+import os
+import numpy as np
+from datetime import datetime
+import plotly.express as px
+import plotly.graph_objects as go</code></pre>
+
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li><code>streamlit</code>: إطار عمل لبناء تطبيقات الويب التفاعلية</li>
+        <li><code>pandas</code>: معالجة وتحليل البيانات</li>
+        <li><code>sqlite3</code>: الاتصال بقاعدة البيانات</li>
+        <li><code>plotly</code>: إنشاء الرسوم البيانية التفاعلية</li>
+        <li><code>numpy</code>: العمليات الحسابية والرياضية</li>
+    </ul>
+
+    <h3>2. إعدادات الصفحة والتصميم</h3>
+    <pre><code>st.set_page_config(
+    page_title="Tech Stocks Dashboard",
+    layout="wide",
+    page_icon="📈",
+)</code></pre>
+
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li><code>page_title</code>: عنوان الصفحة في المتصفح</li>
+        <li><code>layout="wide"</code>: استخدام العرض الكامل للشاشة</li>
+        <li><code>page_icon</code>: أيقونة الصفحة</li>
+    </ul>
+
+    <h3>3. التصميم (CSS)</h3>
+    <p>الكود يحتوي على تصميم CSS مخصص يتضمن:</p>
+    <ul>
+        <li><strong>ألوان متغيرة (CSS Variables)</strong>: لتسهيل التعديل</li>
+        <li><strong>خطوط Google Fonts</strong>: استخدام خط Inter الحديث</li>
+        <li><strong>بطاقات (Cards)</strong>: لعرض المعلومات بشكل منظم</li>
+        <li><strong>تأثيرات Hover</strong>: تفاعل عند المرور بالماوس</li>
+        <li><strong>ألوان متدرجة</strong>: خلفيات جميلة ومتدرجة</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="data-loading">📥 تحميل البيانات</h2>
+
+    <h3>دالة <code>load_clean_data()</code></h3>
+    <pre><code>@st.cache_data
+def load_clean_data():
+    if os.path.exists(DB_PATH):
+        conn = sqlite3.connect(DB_PATH)
+        df = pd.read_sql("SELECT * FROM tech_stocks", conn)
+        conn.close()
+    else:
+        df = pd.read_csv(CLEAN_CSV_PATH)
+    df["Date"] = pd.to_datetime(df["Date"], errors="coerce")
+    return df</code></pre>
+
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li><code>@st.cache_data</code>: تخزين مؤقت للبيانات لتسريع التحميل</li>
+        <li>تتحقق من وجود قاعدة البيانات أولاً</li>
+        <li>إذا لم توجد، تحمل من ملف CSV</li>
+        <li>تحويل عمود التاريخ إلى نوع datetime</li>
+    </ul>
+
+    <h3>دالة <code>load_predictions()</code></h3>
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li>تحميل التنبؤات من ملف <code>predictions.csv</code></li>
+        <li>إذا لم توجد التنبؤات، يتم إنشاء تنبؤات أساسية باستخدام المتوسطات المتحركة</li>
+        <li>حساب المؤشرات المطلوبة تلقائياً</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="sidebar">⚙️ لوحة التحكم الجانبية</h2>
+
+    <h3>1. اختيار السهم (Stock Selection)</h3>
+    <pre><code>tickers = sorted(data["Ticker"].unique())
+selected_ticker = st.sidebar.selectbox("", tickers)</code></pre>
+
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li>استخراج جميع الأسهم المتاحة من البيانات</li>
+        <li>عرض قائمة منسدلة لاختيار السهم</li>
+        <li>يتم ترتيب الأسهم أبجدياً</li>
+    </ul>
+
+    <h3>2. اختيار نطاق التاريخ (Date Range)</h3>
+    <pre><code>selected_range = st.sidebar.slider(
+    "",
+    min_value=min_date.to_pydatetime(),
+    max_value=max_date.to_pydatetime(),
+    value=(min_date.to_pydatetime(), max_date.to_pydatetime()),
+)</code></pre>
+
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li>شريط تمرير (slider) لاختيار نطاق التاريخ</li>
+        <li>القيمة الدنيا: أول تاريخ في البيانات</li>
+        <li>القيمة العليا: آخر تاريخ في البيانات</li>
+        <li>القيمة الافتراضية: كل البيانات المتاحة</li>
+    </ul>
+
+    <hr>
+
+    <h2 id="overview-tab">🏠 تبويب النظرة العامة (Overview)</h2>
+
+    <h3>1. المقاييس الرئيسية (Key Metrics)</h3>
+    <p>يعرض 4 بطاقات تحتوي على:</p>
+    <ul>
+        <li><strong>Data Points</strong>: عدد نقاط البيانات المتاحة</li>
+        <li><strong>Last Close</strong>: آخر سعر إغلاق</li>
+        <li><strong>Max Close</strong>: أعلى سعر إغلاق</li>
+        <li><strong>Min Close</strong>: أقل سعر إغلاق</li>
+    </ul>
+
+    <h3>2. رؤى مفصلة (Detailed Insights)</h3>
+    <h4>أ. ملخص نطاق الوقت (Time Range Summary)</h4>
+    <ul>
+        <li>النطاق المحدد</li>
+        <li>المدة بالأيام</li>
+        <li>متوسط السعر</li>
+        <li>الوسيط</li>
+    </ul>
+
+    <h4>ب. أداء السهم (Performance Highlights)</h4>
+    <ul>
+        <li>التغيير الإجمالي (بالدولار والنسبة المئوية)</li>
+        <li>متوسط التقلب (30 يوم)</li>
+        <li>أعلى وأقل تقلب</li>
+    </ul>
+
+    <h3>3. معاينة سريعة للاتجاه (Quick Price Trend Preview)</h3>
+    <pre><code>fig_overview = px.line(ticker_data.tail(30), x="Date", y="Close")</code></pre>
+    <p><strong>الشرح:</strong> رسم بياني خطي لآخر 30 يوم يعطي نظرة سريعة على الاتجاه الحالي</p>
+
+    <hr>
+
+    <h2 id="historical-tab">📉 تبويب البيانات التاريخية (Historical Data)</h2>
+
+    <h3>1. سعر الإغلاق عبر الزمن (Closing Price Over Time)</h3>
+    <pre><code>fig1 = px.line(ticker_data, x="Date", y="Close")</code></pre>
+    <p><strong>الشرح:</strong> رسم بياني خطي يوضح تغير سعر الإغلاق، يساعد في تحديد الاتجاهات طويلة المدى ونقاط التحول الرئيسية</p>
+
+    <h3>2. مقارنة المتوسطات المتحركة (Moving Averages Comparison)</h3>
+    <pre><code>ma_cols = [c for c in ["MA_7", "MA_30", "MA_50"] if c in ticker_data.columns]
+fig2 = px.line(ticker_data, x="Date", y=ma_cols)</code></pre>
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li><strong>MA_7</strong>: متوسط 7 أيام (قصير المدى)</li>
+        <li><strong>MA_30</strong>: متوسط 30 يوم (متوسط المدى)</li>
+        <li><strong>MA_50</strong>: متوسط 50 يوم (طويل المدى)</li>
+        <li>عند تقاطع الخطوط، قد تكون إشارة شراء/بيع</li>
+    </ul>
+
+    <h3>3. تحليل العائد اليومي (Daily Return Analysis)</h3>
+    <pre><code>fig3 = px.line(ticker_data, x="Date", y="Daily_Return")</code></pre>
+    <p><strong>الشرح:</strong> يوضح التغيير اليومي في السعر كنسبة مئوية، يساعد في قياس التقلب قصير المدى</p>
+
+    <h3>4. التقلب لمدة 30 يوم (30-Day Rolling Volatility)</h3>
+    <pre><code>fig4 = px.area(ticker_data, x="Date", y="Volatility_30")</code></pre>
+    <p><strong>الشرح:</strong> يقيس مقدار تقلب السعر. التقلب العالي = مخاطر أعلى وإمكانية مكاسب أعلى</p>
+
+    <hr>
+
+    <h2 id="predictions-tab">🔮 تبويب التنبؤات (Predictions)</h2>
+
+    <h3>1. بطاقات التنبؤ (Prediction Cards)</h3>
+    <p>يعرض 3 بطاقات:</p>
+    <ul>
+        <li><strong>Last Actual Close</strong>: آخر سعر إغلاق فعلي</li>
+        <li><strong>Predicted Close (GBR)</strong>: السعر المتوقع من نموذج Gradient Boosting</li>
+        <li><strong>Model Forecast</strong>: التوقعات (زيادة/نقصان/مستقر)</li>
+    </ul>
+
+    <h3>2. مقارنة الفعلي مقابل المتوقع (Actual vs Predicted)</h3>
+    <pre><code>fig_pred = go.Figure()
+fig_pred.add_trace(go.Scatter(x=preds["Date"], y=preds["Actual_Next_Close"], name='Actual'))
+fig_pred.add_trace(go.Scatter(x=preds["Date"], y=preds["GBR_Pred_Next_Close"], name='Predicted'))</code></pre>
+    <p><strong>الشرح:</strong> الخط الأزرق = القيم الفعلية، الخط الأحمر المنقط = القيم المتوقعة. كلما اقترب الخطان من بعضهما، كان النموذج أدق</p>
+
+    <h3>3. مقارنة التقلب الشهري (Monthly Volatility Comparison)</h3>
+    <p><strong>الشرح:</strong> يقارن التقلب الفعلي مع المتوقع، يساعد في تقييم قدرة النموذج على التنبؤ بالتقلبات</p>
+
+    <h3>4. مقاييس جودة النموذج (Model Quality Metrics)</h3>
+
+    <h4>أ. RMSE (Root Mean Squared Error)</h4>
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li>يقيس متوسط خطأ التنبؤ</li>
+        <li><strong>كلما قل الرقم، كان أفضل</strong></li>
+        <li>مثال: RMSE = 5 يعني متوسط الخطأ حوالي 5 دولارات</li>
+    </ul>
+
+    <h4>ب. R² (Coefficient of Determination)</h4>
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li>يقيس نسبة التباين المفسر</li>
+        <li><strong>القيمة من 0 إلى 1</strong></li>
+        <li><strong>1 = مثالي</strong>، <strong>0 = لا يوجد علاقة</strong></li>
+        <li>مثال: R² = 0.85 يعني النموذج يفسر 85% من التغيرات</li>
+    </ul>
+
+    <h4>ج. دقة الاتجاه (Direction Accuracy)</h4>
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li>نسبة الأيام التي تنبأ فيها النموذج بالاتجاه الصحيح (صعود/هبوط)</li>
+        <li><strong>كلما زادت النسبة، كان أفضل</strong></li>
+        <li>مثال: 70% يعني النموذج صحيح في 70% من الحالات</li>
+    </ul>
+
+    <h3>5. مصفوفة الارتباك (Confusion Matrix)</h3>
+    <p><strong>الشرح:</strong> جدول يوضح:</p>
+    <ul>
+        <li><strong>True Positive</strong>: تنبأ بالصعود وكان صحيحاً</li>
+        <li><strong>True Negative</strong>: تنبأ بالهبوط وكان صحيحاً</li>
+        <li><strong>False Positive</strong>: تنبأ بالصعود لكن كان هبوط</li>
+        <li><strong>False Negative</strong>: تنبأ بالهبوط لكن كان صعود</li>
+    </ul>
+    <p>الخلايا القطرية = تنبؤات صحيحة. كلما كبرت الخلايا القطرية، كان النموذج أفضل</p>
+
+    <hr>
+
+    <h2 id="raw-data-tab">🧾 تبويب البيانات الخام (Raw Data)</h2>
+
+    <h3>1. الفلاتر (Filters)</h3>
+    <ul>
+        <li><strong>اختيار الأعمدة</strong>: اختيار الأعمدة المراد عرضها</li>
+        <li><strong>الترتيب</strong>: ترتيب البيانات حسب عمود معين</li>
+        <li><strong>ترتيب تصاعدي/تنازلي</strong>: اختيار اتجاه الترتيب</li>
+    </ul>
+
+    <h3>2. عرض البيانات (Data Display)</h3>
+    <p>عرض البيانات في جدول تفاعلي يمكن التمرير والبحث والترتيب</p>
+
+    <h3>3. تحميل البيانات (Download)</h3>
+    <p>زر لتحميل البيانات المفلترة كملف CSV</p>
+
+    <hr>
+
+    <h2 id="model-insights-tab">🧠 تبويب رؤى النموذج (Model Insights)</h2>
+
+    <h3>1. MACD و Signal Line</h3>
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li><strong>EMA_12</strong>: متوسط متحرك أسي لـ 12 يوم (سريع)</li>
+        <li><strong>EMA_26</strong>: متوسط متحرك أسي لـ 26 يوم (بطيء)</li>
+        <li><strong>MACD</strong>: الفرق بين الاثنين (مؤشر الزخم)</li>
+        <li><strong>Signal Line</strong>: متوسط MACD لمدة 9 أيام</li>
+        <li><strong>إشارة الشراء</strong>: عندما يعبر MACD فوق Signal Line</li>
+        <li><strong>إشارة البيع</strong>: عندما يعبر MACD تحت Signal Line</li>
+    </ul>
+
+    <h3>2. Bollinger Bands</h3>
+    <p><strong>الشرح:</strong></p>
+    <ul>
+        <li><strong>MA_20</strong>: متوسط 20 يوم</li>
+        <li><strong>Upper Band</strong>: المتوسط + (2 × الانحراف المعياري)</li>
+        <li><strong>Lower Band</strong>: المتوسط - (2 × الانحراف المعياري)</li>
+        <li><strong>إشارة الشراء</strong>: عندما يلمس السعر النطاق السفلي (مفرط البيع)</li>
+        <li><strong>إشارة البيع</strong>: عندما يلمس السعر النطاق العلوي (مفرط الشراء)</li>
+    </ul>
+
+    <h3>3. أفضل وأسوأ الأيام (Best and Worst Days)</h3>
+    <p><strong>الشرح:</strong> يعرض أفضل 5 أيام وأسوأ 5 أيام حسب العائد اليومي، يساعد في فهم الأحداث التي أثرت على السهم</p>
+
+    <hr>
+
+    <h2 id="glossary">📖 المصطلحات الأساسية</h2>
+
+    <h3>مصطلحات الأسعار:</h3>
+    <ul>
+        <li><strong>Close</strong>: آخر سعر تداول في اليوم</li>
+        <li><strong>Open</strong>: أول سعر تداول في اليوم</li>
+        <li><strong>High</strong>: أعلى سعر في اليوم</li>
+        <li><strong>Low</strong>: أقل سعر في اليوم</li>
+        <li><strong>Volume</strong>: حجم التداول</li>
+    </ul>
+
+    <h3>مصطلحات التحليل الفني:</h3>
+    <ul>
+        <li><strong>Moving Average (MA)</strong>: متوسط الأسعار على فترة معينة</li>
+        <li><strong>EMA</strong>: متوسط متحرك أسي (يعطي وزن أكبر للقيم الحديثة)</li>
+        <li><strong>Daily Return</strong>: نسبة التغيير اليومي في السعر</li>
+        <li><strong>Volatility</strong>: مقياس تقلب السعر (الانحراف المعياري)</li>
+        <li><strong>MACD</strong>: مؤشر الزخم من المتوسطات المتحركة</li>
+        <li><strong>Bollinger Bands</strong>: نطاقات حول السعر لتحديد المستويات القصوى</li>
+    </ul>
+
+    <h3>مصطلحات التعلم الآلي:</h3>
+    <ul>
+        <li><strong>GBR</strong>: نموذج تعزيز التدرج للتنبؤ بالقيم</li>
+        <li><strong>RFC</strong>: نموذج الغابة العشوائية للتصنيف</li>
+        <li><strong>RMSE</strong>: جذر متوسط مربع الخطأ (مقياس دقة التنبؤ)</li>
+        <li><strong>R²</strong>: معامل التحديد (مقياس جودة النموذج)</li>
+        <li><strong>Confusion Matrix</strong>: مصفوفة توضح أداء النموذج في التصنيف</li>
+    </ul>
+
+    <hr>
+
+    <h2>🎨 التصميم والواجهة</h2>
+    <p><strong>الألوان المستخدمة:</strong></p>
+    <ul>
+        <li><strong>الأزرق الأساسي (#2563eb)</strong>: للأزرار والعناصر الرئيسية</li>
+        <li><strong>البنفسجي الثانوي (#7c3aed)</strong>: لأزرار التحميل</li>
+        <li><strong>الأخضر (#10b981)</strong>: للنجاح/الإيجابي</li>
+        <li><strong>البرتقالي (#f59e0b)</strong>: للتحذيرات</li>
+        <li><strong>الأحمر (#ef4444)</strong>: للخطر/السلبي</li>
+    </ul>
+
+    <hr>
+
+    <h2>🚀 كيفية الاستخدام</h2>
+    <ol>
+        <li><strong>تشغيل التطبيق</strong>: <code>streamlit run streamlit_app.py</code></li>
+        <li><strong>اختيار السهم</strong>: من القائمة الجانبية</li>
+        <li><strong>تحديد نطاق التاريخ</strong>: باستخدام شريط التمرير</li>
+        <li><strong>استكشاف التبويبات</strong>: التنقل بين التبويبات المختلفة</li>
+        <li><strong>تحليل البيانات</strong>: استخدام الرسوم البيانية والمقاييس</li>
+    </ol>
+
+    <hr>
+
+    <div class="footer">
+        <p><strong>تم التطوير بواسطة</strong>: Data Engineering Team — DEPI Graduation Project 2025 🎓</p>
+        <p>تم إنشاء هذا الملف في: <script>document.write(new Date().toLocaleString('ar-EG'))</script></p>
+    </div>
+
+</body>
+</html>
+
